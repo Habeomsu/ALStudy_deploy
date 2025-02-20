@@ -3,6 +3,7 @@
 ## 1. 가장 기본적인 배포
 - 링크
 - https://github.com/Habeomsu/ALStudy_deploy/tree/main/v1
+- [v1 배포 바로가기](https://github.com/Habeomsu/ALStudy_deploy/tree/main/v1)
 ## 2. Docker를 사용한 배포
 - 링크
 - https://github.com/Habeomsu/ALStudy_deploy/tree/main/v2
