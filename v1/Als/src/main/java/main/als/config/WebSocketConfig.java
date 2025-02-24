@@ -3,6 +3,7 @@ package main.als.config;
 import lombok.RequiredArgsConstructor;
 import main.als.websocket.util.StompExceptionHandler;
 import main.als.websocket.util.StompHandler;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
@@ -19,16 +20,24 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     private final StompHandler stompHandler;
     private final StompExceptionHandler stompExceptionHandler;
 
+    @Value("${rabbitmq.host}")
+    private String rabbitMqHost;
+
+    @Value("${rabbitmq.user}")
+    private String rabbitMqUser;
+
+    @Value("${rabbitmq.password}")
+    private String rabbitMqPassword;
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry){
         registry.setApplicationDestinationPrefixes("/pub")
                 .enableStompBrokerRelay("/topic")
-                .setRelayHost("localhost")
+                .setRelayHost(rabbitMqHost)
                 .setVirtualHost("/")
                 .setRelayPort(61613)
-                .setClientLogin("guest")
-                .setClientPasscode("guest")
+                .setClientLogin(rabbitMqUser)
+                .setClientPasscode(rabbitMqPassword)
 
         ;
 
