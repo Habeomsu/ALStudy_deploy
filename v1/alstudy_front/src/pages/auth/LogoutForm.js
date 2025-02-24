@@ -8,7 +8,7 @@ const LogoutForm = () => {
 
   const fetchLogout = async () => {
     try {
-      const response = await fetch('http://localhost:8080/logout', {
+      const response = await fetch('/api/logout', {
         method: 'POST',
         credentials: 'include',
       });

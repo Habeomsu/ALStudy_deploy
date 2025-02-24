@@ -14,7 +14,7 @@ const CreateGroupProblemForm = () => {
 
   useEffect(() => {
     const fetchProblems = async () => {
-      const url = `http://localhost:8080/problems`; // 문제 목록을 가져오는 API 경로
+      const url = `/api/problems`; // 문제 목록을 가져오는 API 경로
       const response = await FetchAuthorizedPage(url, navigate);
 
       if (response && response.isSuccess) {
@@ -41,7 +41,7 @@ const CreateGroupProblemForm = () => {
       deductionAmount: deductionAmount,
     };
 
-    const url = `http://localhost:8080/groupproblem/${groupId}`; // 문제 생성 API 경로
+    const url = `/api/groupproblem/${groupId}`; // 문제 생성 API 경로
     const response = await FetchAuthorizedPage(
       url,
       navigate,

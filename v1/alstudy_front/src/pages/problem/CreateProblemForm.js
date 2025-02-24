@@ -30,7 +30,7 @@ const CreateProblemForm = () => {
     };
 
     // API 요청을 위한 URL
-    const url = 'http://localhost:8080/problems'; // 실제 API 경로로 변경 필요
+    const url = '/api/problems'; // 실제 API 경로로 변경 필요
 
     // FetchAuthorizedPage를 사용하여 데이터 전송
     const response = await FetchAuthorizedPage(

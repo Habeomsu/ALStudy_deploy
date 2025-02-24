@@ -14,7 +14,7 @@ const MySubmitDetailForm = () => {
 
   useEffect(() => {
     const fetchSubmissionDetail = async () => {
-      const url = `http://localhost:8080/submission/${groupProblemId}/${submissionId}`; // API URL
+      const url = `/api/submission/${groupProblemId}/${submissionId}`; // API URL
       try {
         const data = await FetchAuthorizedPage(url, navigate, null, 'GET'); // FetchAuthorizedPage 사용
         setSubmissionDetail(data.result); // 제출 상세 정보 설정

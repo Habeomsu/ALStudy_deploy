@@ -10,7 +10,7 @@ const UpdateTestCaseForm = () => {
 
   useEffect(() => {
     const fetchTestCaseDetails = async () => {
-      const url = `http://localhost:8080/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 세부 정보 API 경로
+      const url = `/api/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 세부 정보 API 경로
       const response = await FetchAuthorizedPage(url, navigate, null, 'GET');
 
       if (response && response.isSuccess) {
@@ -34,7 +34,7 @@ const UpdateTestCaseForm = () => {
     };
 
     // API 요청을 위한 URL
-    const url = `http://localhost:8080/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 업데이트 API 경로
+    const url = `/api/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 업데이트 API 경로
 
     // FetchAuthorizedPage를 사용하여 데이터 전송
     const response = await FetchAuthorizedPage(

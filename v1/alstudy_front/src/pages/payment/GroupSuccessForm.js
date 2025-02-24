@@ -39,7 +39,7 @@ export function GroupSuccessForm() {
 
       try {
         const response = await FetchAuthorizedPage(
-          'http://localhost:8080/groups/payment',
+          '/api/groups/payment',
           navigate,
           {
             pathname: window.location.pathname,

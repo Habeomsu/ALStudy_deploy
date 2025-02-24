@@ -19,7 +19,7 @@ const CreateTestCaseForm = () => {
     };
 
     // API 요청을 위한 URL
-    const url = `http://localhost:8080/testcase/${problemId}`; // 실제 API 경로로 변경 필요
+    const url = `/api/testcase/${problemId}`; // 실제 API 경로로 변경 필요
 
     // FetchAuthorizedPage를 사용하여 데이터 전송
     const response = await FetchAuthorizedPage(

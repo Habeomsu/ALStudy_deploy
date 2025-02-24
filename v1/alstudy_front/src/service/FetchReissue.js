@@ -2,7 +2,7 @@ import { Cookies } from 'react-cookie';
 
 const FetchReissue = async () => {
   try {
-    const response = await fetch('http://localhost:8080/reissue', {
+    const response = await fetch('/api/reissue', {
       method: 'POST',
       credentials: 'include', // 쿠키 포함
       headers: {

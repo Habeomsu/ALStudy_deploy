@@ -13,7 +13,7 @@ const UpdateGroupProblemForm = () => {
 
   useEffect(() => {
     const fetchProblem = async () => {
-      const url = `http://localhost:8080/groupproblem/${groupId}/${groupProblemId}`; // 특정 문제를 가져오는 API 경로
+      const url = `/api/groupproblem/${groupId}/${groupProblemId}`; // 특정 문제를 가져오는 API 경로
       const response = await FetchAuthorizedPage(url, navigate);
 
       if (response && response.isSuccess) {
@@ -41,7 +41,7 @@ const UpdateGroupProblemForm = () => {
       deductionAmount: deductionAmount,
     };
 
-    const url = `http://localhost:8080/groupproblem/${groupId}/${groupProblemId}`; // 문제 수정 API 경로
+    const url = `/api/groupproblem/${groupId}/${groupProblemId}`; // 문제 수정 API 경로
     const response = await FetchAuthorizedPage(
       url,
       navigate,

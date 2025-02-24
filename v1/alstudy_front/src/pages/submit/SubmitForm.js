@@ -26,7 +26,7 @@ const SubmitForm = () => {
     formData.append('file', blob, 'submission_code.txt'); // 파일 이름을 지정
     formData.append('language', language); // 언어 추가
 
-    const url = `http://localhost:8080/submission/${groupProblemId}`; // 코드 제출 API 경로
+    const url = `/api/submission/${groupProblemId}`; // 코드 제출 API 경로
     const response = await FetchMultipartAuthorizedPage(
       url,
       navigate,

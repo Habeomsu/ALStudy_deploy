@@ -31,7 +31,7 @@ const ProblemsDetailForm = () => {
 
   // 테스트 케이스 가져오기
   const fetchTestCases = async () => {
-    const url = `http://localhost:8080/testcase/${problemId}`; // 테스트 케이스 API 경로
+    const url = `/api/testcase/${problemId}`; // 테스트 케이스 API 경로
     const response = await FetchAuthorizedPage(url, navigate, location);
     if (response && response.isSuccess) {
       setTestCases(response.result); // 테스트 케이스 결과 저장
@@ -50,7 +50,7 @@ const ProblemsDetailForm = () => {
   const handleDelete = async () => {
     const confirmDelete = window.confirm('정말로 이 문제를 삭제하시겠습니까?');
     if (confirmDelete) {
-      const url = `http://localhost:8080/problems/${problemId}`; // 실제 API 경로로 변경 필요
+      const url = `/api/problems/${problemId}`; // 실제 API 경로로 변경 필요
       const response = await FetchAuthorizedPage(
         url,
         navigate,
@@ -72,7 +72,7 @@ const ProblemsDetailForm = () => {
       '정말로 이 테스트 케이스를 삭제하시겠습니까?'
     );
     if (confirmDelete) {
-      const url = `http://localhost:8080/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 삭제 API 경로
+      const url = `/api/testcase/${problemId}/${testCaseId}`; // 테스트 케이스 삭제 API 경로
       const response = await FetchAuthorizedPage(
         url,
         navigate,

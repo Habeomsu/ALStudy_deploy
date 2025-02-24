@@ -35,7 +35,7 @@ const GroupProblemForm = () => {
   }, [groupId, navigate, location, page, size, sort]);
 
   const fetchGroupDetails = async () => {
-    const url = `http://localhost:8080/groups/${groupId}`;
+    const url = `/api/groups/${groupId}`;
     const response = await FetchAuthorizedPage(url, navigate, location);
     if (response && response.isSuccess) {
       setGroupData(response.result);
@@ -51,7 +51,7 @@ const GroupProblemForm = () => {
   };
 
   const fetchProblem = async () => {
-    const url = `http://localhost:8080/groupproblem/${groupId}?page=${page}&size=${size}&sort=${sort}`;
+    const url = `/api/groupproblem/${groupId}?page=${page}&size=${size}&sort=${sort}`;
     const response = await FetchAuthorizedPage(url, navigate, location);
     if (response && response.isSuccess) {
       setProblemData(response.result.groupProblemResDtos);
@@ -72,7 +72,7 @@ const GroupProblemForm = () => {
   const handleDeleteProblem = async (groupProblemId) => {
     const confirmDelete = window.confirm('정말로 이 문제를 삭제하시겠습니까?');
     if (confirmDelete) {
-      const url = `http://localhost:8080/groupproblem/${groupId}/${groupProblemId}`;
+      const url = `/api/groupproblem/${groupId}/${groupProblemId}`;
       const response = await FetchAuthorizedPage(
         url,
         navigate,
