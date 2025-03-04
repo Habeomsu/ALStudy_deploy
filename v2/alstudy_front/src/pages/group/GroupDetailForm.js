@@ -11,7 +11,7 @@ const GroupDetailForm = () => {
 
   useEffect(() => {
     const fetchGroupDetails = async () => {
-      const url = `http://localhost:8080/groups/${groupId}`; // 그룹 상세 API URL
+      const url = `/api/groups/${groupId}`; // 그룹 상세 API URL
       const response = await FetchAuthorizedPage(url, navigate, location); // location 전달
 
       if (response && response.isSuccess) {
@@ -27,7 +27,7 @@ const GroupDetailForm = () => {
   const handleJoinGroup = async () => {
     const password = window.prompt('비밀번호를 입력하세요:'); // 비밀번호 입력 요청
     if (password) {
-      const url = `http://localhost:8080/usergroups/${groupId}`; // 그룹 ID 경로
+      const url = `/api/usergroups/${groupId}`; // 그룹 ID 경로
       const body = { password }; // 본문에 비밀번호 포함
 
       const response = await FetchAuthorizedPage(

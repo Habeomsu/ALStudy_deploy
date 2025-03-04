@@ -12,7 +12,7 @@ const UserGroupForm = () => {
   const location = useLocation();
 
   const getGroups = async () => {
-    const url = `http://localhost:8080/usergroups?page=${page}&size=${size}&sort=${sort}`; // API URL
+    const url = `/api/usergroups?page=${page}&size=${size}&sort=${sort}`; // API URL
     const groupsData = await FetchAuthorizedPage(url, navigate, location);
 
     if (groupsData && groupsData.isSuccess) {
@@ -36,7 +36,7 @@ const UserGroupForm = () => {
       '정말로 이 그룹에서 탈퇴하시겠습니까?'
     );
     if (confirmResign) {
-      const url = `http://localhost:8080/usergroups/${groupId}`; // 탈퇴 API URL
+      const url = `/api/usergroups/${groupId}`; // 탈퇴 API URL
       const response = await FetchAuthorizedPage(
         url,
         navigate,
@@ -59,7 +59,7 @@ const UserGroupForm = () => {
   const handleRefund = async (userGroupId) => {
     const confirmRefund = window.confirm('환급 요청을 하시겠습니까?');
     if (confirmRefund) {
-      const url = `http://localhost:8080/payment/refund/${userGroupId}`; // 환급 API URL
+      const url = `/api/payment/refund/${userGroupId}`; // 환급 API URL
       const response = await FetchAuthorizedPage(
         url,
         navigate,

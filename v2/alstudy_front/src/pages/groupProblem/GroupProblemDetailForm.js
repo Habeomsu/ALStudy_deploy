@@ -13,7 +13,7 @@ const GroupProblemDetailForm = () => {
 
   useEffect(() => {
     const fetchGroupProblemDetails = async () => {
-      const url = `http://localhost:8080/groupproblem/${groupId}/${groupProblemId}`;
+      const url = `/api/groupproblem/${groupId}/${groupProblemId}`;
       const response = await FetchAuthorizedPage(url, navigate, location);
 
       if (response && response.isSuccess) {

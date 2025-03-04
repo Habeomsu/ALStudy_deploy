@@ -1,7 +1,7 @@
 import FetchAuthorizedPage from '../FetchAuthorizedPage';
 
 const fetchProblemDetail = async (id, navigate, location) => {
-  const url = `http://localhost:8080/problems/${id}`; // 문제 상세 정보 API URL
+  const url = `/api/problems/${id}`; // 문제 상세 정보 API URL
   const data = await FetchAuthorizedPage(url, navigate, location, 'GET');
 
   if (data) {

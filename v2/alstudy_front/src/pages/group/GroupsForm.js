@@ -14,7 +14,7 @@ const GroupsForm = () => {
 
   // 그룹을 가져오는 함수
   const getGroups = async () => {
-    const url = `http://localhost:8080/groups?page=${page}&size=${size}&sort=${sort}&search=${encodeURIComponent(
+    const url = `/api/groups?page=${page}&size=${size}&sort=${sort}&search=${encodeURIComponent(
       searchTerm
     )}`; // API URL에 검색어 추가
     const groupsData = await FetchAuthorizedPage(url, navigate, location);
@@ -36,7 +36,7 @@ const GroupsForm = () => {
 
   // 실제 삭제 요청을 수행하는 함수
   const deleteGroup = async (groupId, password) => {
-    const url = `http://localhost:8080/groups/${groupId}?password=${encodeURIComponent(
+    const url = `/api/groups/${groupId}?password=${encodeURIComponent(
       password
     )}`; // 비밀번호를 쿼리 파라미터로 추가
     return await FetchAuthorizedPage(url, navigate, location, 'DELETE'); // 응답 반환

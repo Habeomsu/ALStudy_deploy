@@ -10,7 +10,7 @@ const fetchProblems = async (
   search // 검색어 추가
 ) => {
   const url =
-    `http://localhost:8080/problems?page=${page}&size=${size}&sort=${sort}` +
+    `/api/problems?page=${page}&size=${size}&sort=${sort}` +
     (problemType && problemType !== 'ALL'
       ? `&problemType=${problemType}`
       : '') +

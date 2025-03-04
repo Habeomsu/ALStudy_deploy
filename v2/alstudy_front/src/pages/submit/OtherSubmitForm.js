@@ -17,7 +17,7 @@ const OtherSubmitForm = () => {
 
   useEffect(() => {
     const fetchOtherSubmissions = async () => {
-      const url = `http://localhost:8080/submission/others/${groupProblemId}?page=${page}&size=${size}`; // API URL
+      const url = `/api/submission/others/${groupProblemId}?page=${page}&size=${size}`; // API URL
       try {
         const data = await FetchAuthorizedPage(url, navigate, location, 'GET'); // FetchAuthorizedPage 사용
 

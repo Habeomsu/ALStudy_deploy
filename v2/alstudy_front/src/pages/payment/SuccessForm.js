@@ -28,7 +28,7 @@ export function SuccessForm() {
 
       try {
         const response = await FetchAuthorizedPage(
-          'http://localhost:8080/payment/confirm',
+          '/api/payment/confirm',
           navigate,
           {
             pathname: window.location.pathname,

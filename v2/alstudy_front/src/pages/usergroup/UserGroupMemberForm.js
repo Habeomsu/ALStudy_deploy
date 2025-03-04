@@ -16,7 +16,7 @@ const UserGroupMemberForm = () => {
 
   useEffect(() => {
     const fetchMembers = async () => {
-      const url = `http://localhost:8080/usergroups/${groupId}/users?page=${page}&size=${size}&sort=${sort}`;
+      const url = `/api/usergroups/${groupId}/users?page=${page}&size=${size}&sort=${sort}`;
       const response = await FetchAuthorizedPage(url, navigate, location);
 
       if (response && response.isSuccess) {

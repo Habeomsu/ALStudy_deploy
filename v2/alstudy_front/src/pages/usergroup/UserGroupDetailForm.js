@@ -27,6 +27,7 @@ const UserGroupDetailWithMembersForm = () => {
         chatContainerRef.current.scrollHeight;
     }
   };
+  const WS_HOST = process.env.REACT_APP_WS_HOST || 'localhost';
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +56,7 @@ const UserGroupDetailWithMembersForm = () => {
       console.log('Disconnected from previous WebSocket connection');
     }
     const client = new Client({
-      brokerURL: 'ws://localhost:8080/ws',
+      brokerURL: `wss://${WS_HOST}/ws/`,
       connectHeaders: {
         access: localStorage.getItem('access') || '',
       },
@@ -100,7 +101,7 @@ const UserGroupDetailWithMembersForm = () => {
   };
 
   const fetchGroupDetails = async () => {
-    const url = `http://localhost:8080/groups/${groupId}`;
+    const url = `/api/groups/${groupId}`;
     const response = await FetchAuthorizedPage(url, navigate, location);
     if (response && response.isSuccess) {
       setGroupData(response.result);
@@ -113,7 +114,7 @@ const UserGroupDetailWithMembersForm = () => {
   };
 
   const fetchTodayProblems = async () => {
-    const url = `http://localhost:8080/groupproblem/${groupId}/todayProblem`;
+    const url = `/api/groupproblem/${groupId}/todayProblem`;
     const response = await FetchAuthorizedPage(url, navigate, location);
     if (response && response.isSuccess) {
       setTodayProblems(response.result.groupProblemResDtos);
@@ -150,7 +151,7 @@ const UserGroupDetailWithMembersForm = () => {
     const chatContainer = chatContainerRef.current;
     const previousScrollHeight = chatContainer ? chatContainer.scrollHeight : 0;
 
-    const url = `http://localhost:8080/message/${groupId}?page=${page}&size=20`;
+    const url = `/api/message/${groupId}?page=${page}&size=20`;
     const response = await FetchAuthorizedPage(url, navigate, location);
 
     if (response && response.isSuccess) {

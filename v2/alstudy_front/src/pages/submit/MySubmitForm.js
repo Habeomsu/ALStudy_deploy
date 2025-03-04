@@ -17,7 +17,7 @@ const MySubmitForm = () => {
 
   useEffect(() => {
     const fetchSubmissions = async () => {
-      const url = `http://localhost:8080/submission/${groupProblemId}?page=${page}&size=${size}`; // API URL에 페이지와 크기 추가
+      const url = `/api/submission/${groupProblemId}?page=${page}&size=${size}`; // API URL에 페이지와 크기 추가
       try {
         const data = await FetchAuthorizedPage(url, navigate, location, 'GET'); // FetchAuthorizedPage 사용
 
