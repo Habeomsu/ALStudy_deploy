@@ -56,7 +56,7 @@ const UserGroupDetailWithMembersForm = () => {
       console.log('Disconnected from previous WebSocket connection');
     }
     const client = new Client({
-      brokerURL: `wss://${WS_HOST}/ws/`,
+      brokerURL: `ws://${WS_HOST}/ws/`,
       connectHeaders: {
         access: localStorage.getItem('access') || '',
       },

@@ -3,6 +3,7 @@ package main.als.problem.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import main.als.apiPayload.code.status.ErrorStatus;
 import main.als.apiPayload.exception.GeneralException;
 import main.als.aws.s3.AmazonS3Manager;
@@ -39,6 +40,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 @Service
+@Slf4j
 public class SubmissionServiceImpl implements SubmissionService {
 
     private final UserRepository userRepository;
@@ -112,6 +114,7 @@ public class SubmissionServiceImpl implements SubmissionService {
         try {
             response = FlaskCommunicationUtil.submitToFlask(file, testCases);
         } catch (IOException e) {
+            log.info(e.getMessage());
             throw new GeneralException(ErrorStatus._FLASK_SERVER_ERROR); // 통신 오류 처리
         }
 
@@ -133,6 +136,7 @@ public class SubmissionServiceImpl implements SubmissionService {
 
             }
         } else {
+            log.info("submission could not be submitted");
             throw new GeneralException(ErrorStatus._FLASK_SERVER_ERROR); // Flask 서버 오류 처리
         }
 

@@ -2,6 +2,7 @@ package main.als.problem.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import main.als.apiPayload.code.status.ErrorStatus;
 import main.als.apiPayload.exception.GeneralException;
 import main.als.problem.entity.TestCase;
@@ -24,11 +25,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 public class FlaskCommunicationUtil {
 
-    private static final String FLASK_URL = "http://localhost:5001/grade"; // Flask 서버 주소
+    private static final String FLASK_URL = "http://flask-api:5001/grade"; // Flask 서버 주소
 
-    public static ResponseEntity<Map> submitToFlask(MultipartFile file, List<TestCase> testCases) throws IOException, JsonProcessingException {
+    public static ResponseEntity<Map> submitToFlask(MultipartFile file, List<TestCase> testCases)
+            throws IOException, JsonProcessingException {
         // Flask 서버와 통신
         RestTemplate restTemplate = new RestTemplate();
 
@@ -59,8 +62,10 @@ public class FlaskCommunicationUtil {
             // Flask 서버에 POST 요청
             return restTemplate.postForEntity(FLASK_URL, requestEntity, Map.class);
         } catch (ResourceAccessException e) {
+            log.info(e.getMessage());
             throw new GeneralException(ErrorStatus._FLASK_SERVER_ERROR);
         } catch (HttpClientErrorException e) {
+            log.info(e.getMessage());
             throw new GeneralException(ErrorStatus._FLASK_SERVER_ERROR);
         }
     }
