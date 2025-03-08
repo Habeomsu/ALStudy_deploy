@@ -16,4 +16,4 @@ Spring + React + Flask + Mysql + RabbitMq
 ## 2. Docker를 사용한 배포
 - [v2 배포 바로가기](https://github.com/Habeomsu/ALStudy_deploy/tree/main/v2)
 ## 3. CI/CD를 사용한 배포
-[- [v3 배포 바로가기](https://github.com/Habeomsu/ALStudy_deploy/tree/main/v3)](https://github.com/Habeomsu/alstudy_v3)
+- [v3 배포 바로가기] (https://github.com/Habeomsu/alstudy_v3)
